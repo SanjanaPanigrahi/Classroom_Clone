@@ -14,12 +14,13 @@
         }
 
         header {
-            background-color: lightblue;
+            background-color: #00203F;
+            color: #ADEFD1;
             padding: 20px;
             text-align: center;
         }
 
-        header h1 {
+        header h2 {
             margin: 0;
         }
 
@@ -47,9 +48,10 @@
 
         footer {
 
-            background-color: darkblue;
+            background-color: #00203F;
+            color: #ADEFD1;
             bottom: 30px;
-            color: white;
+            
             text-align: center;
             padding: 10px 0;
             width: 100%;
@@ -116,28 +118,28 @@
         }
         .navbtn{
             
-            background-color:#3498DB ;
-            color:white;
+            color: #00203F;
+            background-color: #ADEFD1;
         }
         .navbtn:hover{
             
-            background-color:#00008B ;
-            color: white;
+            background-color: #00203F;
+            color: #ADEFD1;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Teacher's Dashboard</h1>
+        <h2>Teacher's Dashboard</h2>
     </header>
 
     <div class="dashboard-container">
         <nav class="navigation-section">
-            <button class="navbtn" onclick="showAddStudentForm()">Add Student</button>
-            <button class="navbtn" onclick="showPostAssignmentForm()">Post Assignment</button>
-            <button class="navbtn" onclick="showMaterial()">Post Material</button>
-            <button class="navbtn" onclick="showGradingForm()">Score Assignments</button>
+            <button class="navbtn" onclick="showAddStudentForm()"><b>Add Student</b></button>
+            <button class="navbtn" onclick="showPostAssignmentForm()"><b>Post Assignment</b></button>
+            <button class="navbtn" onclick="showMaterial()"><b>Post Material</b></button>
+            <button class="navbtn" onclick="showGradingForm()"><b>Score Assignments</b></button>
         </nav>
 
         <div class="body-section">
