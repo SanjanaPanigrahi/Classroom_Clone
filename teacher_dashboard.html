@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            background-color: lightblue;
+            padding: 10px;
+            max-height: 100vh;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        nav button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            background-color: #ddd;
+        }
+
+        footer {
+
+            background-color: darkblue;
+            bottom: 30px;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            display: absolute;
+        }
+
+        .dashboard-container {
+            display: flex;
+            padding: 20px;
+            max-height: 100vh;
+        }
+
+        .navigation-section {
+            justify-content: center;
+            width: 20%;
+            height: 430px;
+            background-color: #e6e6e6;
+            padding: 20px;
+            padding-top: 120px;
+            max-height: 100%;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        .body-section {
+            height: 530px;
+            width: 80%;
+            background-color: white;
+            padding: 20px;
+            max-height: 100%;
+            overflow-y: auto;
+
+        }
+
+        .body-section form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .body-section input[type="text"],
+        .body-section input[type="password"],
+        .body-section input[type="submit"] ,.btn1 {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .body-section input[type="submit"],.btn1 {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .body-section input[type="submit"]:hover  , .btn1:hover{
+            background-color: orange;
+            color: black;
+        }
+        .navbtn{
+            
+            background-color:#3498DB ;
+            color:white;
+        }
+        .navbtn:hover{
+            
+            background-color:#00008B ;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Teacher's Dashboard</h1>
+    </header>
+
+    <div class="dashboard-container">
+        <nav class="navigation-section">
+            <button class="navbtn" onclick="showAddStudentForm()">Add Student</button>
+            <button class="navbtn" onclick="showPostAssignmentForm()">Post Assignment</button>
+            <button class="navbtn" onclick="showMaterial()">Post Material</button>
+            <button class="navbtn" onclick="showGradingForm()">Score Assignments</button>
+        </nav>
+
+        <div class="body-section">
+            <!-- Body content will be dynamically updated based on navigation -->
+        </div>
+    </div>
+
+    <footer>
+        <b>&copy; 6404_Sanjana. &hearts;</b>
+    </footer>
+
+    <script>
+        function showAddStudentForm() {
+            var bodySection = document.querySelector('.body-section');
+            bodySection.innerHTML = `
+                <form onsubmit="return alert('Student added successfully!')">
+                    <h2>Add Student</h2>
+                    <input type="text" name="student_id" placeholder="Student ID" required>
+                    <input type="text" name="student_name" placeholder="Student Name" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="submit" value="Submit">
+                </form>
+            `;
+        }
+
+        function showPostAssignmentForm() {
+            var bodySection = document.querySelector('.body-section');
+            bodySection.innerHTML = `
+            <form onsubmit="return alert('Assignment Posted')" style="text-align: center;">
+                <h2>Post Assignment</h2>
+                <div>
+                    <label for="title">Title:</label><br>
+                    <input type="text" id="title" name="title" placeholder="Title" required><br>
+                </div>
+                <div>
+                    <label for="description" >Description:</label><br>
+                    <textarea style="height:50px;width:350px" id="description" name="description" placeholder="Description" required></textarea><br>
+                </div><br>
+                <div>
+                    <label for="last_submission_date">Last Submission Date:</label>&nbsp;&nbsp;
+                    <input type="date" id="due_date" name="due_date" required><br>
+                </div>
+                <br>
+                <div>
+                    <label for="file">Upload File:</label>&nbsp;&nbsp;
+                    <input type="file" id="file" name="file" accept=".pdf,.doc,.docx" required><br>
+                </div>
+                <br>
+                <input type="submit" value="Post Assignment">
+            </form>
+        `;
+        }
+
+        function showMaterial() {
+            var bodySection = document.querySelector('.body-section');
+            bodySection.innerHTML = `
+                <form onsubmit="return alert('Material Posted Successfully')">
+                    <h2>Post Material</h2>
+                    <input type="text" name="title" placeholder="Title" required>
+                    <br>
+                    <input type="file" name="file" accept=".pdf,.doc,.docx" required>
+                    <br><br>
+                    <input type="submit" value="Posting">
+                </form>
+            `;
+        }
+
+
+        function showGradingForm() {
+            var bodySection = document.querySelector('.body-section');
+            bodySection.innerHTML = `
+            <form onsubmit="return alert('Assignment Graded')" style="text-align: center;margin-left:auto;margin-right:auto;">
+                <h2>Grade Assignment</h2>
+                
+                <div>
+                <table style="text-align: center; ">
+        <tr>
+            <td>
+                <label for="assignment">Choose Rollno.:</label>
+            </td>
+            <td>
+                <select id="rollno" name="rollno">
+                    <option value="assignment1">1</option>
+                    <option value="assignment2">2</option>
+                    <option value="assignment3">3</option>
+                </select><br>
+            </td>
+        </tr>
+        <tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr>
+        <tr>
+            <td>
+                <label for="assignment">Select Assignment:</label>
+            </td>
+            <td>
+                <select id="assignment" name="assignment">
+                    <option value="assignment1">Assignment 1</option>
+                    <option value="assignment2">Assignment 2</option>
+                    <option value="assignment3">Assignment 3</option>
+                </select>
+            </td>
+        </tr>
+        <tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr>
+        <tr>
+            <td>
+                <label for="grade">Select Grade:</label>
+            </td>
+            <td>
+                <select id="grade" name="grade">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    </div>
+                <br>
+                <input class="btn1" type="button" value="View Assignmentt">
+                <input type="submit" value="Grade Assignment">
+            </form>
+        `;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

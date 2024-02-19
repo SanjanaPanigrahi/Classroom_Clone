@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #00203F;
+            color:#ADEFD1;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: #333;
+        }
+        footer {
+            background-color: #00203F;
+            color: #ADEFD1;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .options {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .options-container {
+            height: 150px;
+            width: 200px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            display: inline-block;
+            margin-top: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        .options-container a {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        #userType , #userType1{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RAMNIRANJAN JHUNJHUNWALA COLLEGE OF ARTS, SCIENCE & COMMERCE</h1>
+    </header>
+    
+    <div class="options">
+        <label id="userType1" for="userType">Select User Type:</label>
+        <select id="userType" onchange="showOptions()">
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+        </select>
+        <br>
+        <div id="optionsContainer" class="options-container">
+            <!-- Options will be displayed here based on selection -->
+        </div>
+    </div>
+
+    <footer>
+        <b>&copy; 6404_Sanjana. &hearts;</b>
+    
+    </footer>
+
+    <script>
+        function showOptions() {
+            var userType = document.getElementById("userType").value;
+            var optionsContainer = document.getElementById("optionsContainer");
+
+            if (userType === "teacher") {
+                optionsContainer.innerHTML = `
+                    <a href="registration.html">Registration</a>
+                    <br>
+                    <a href="login.html">Login</a>
+                `;
+            } else if (userType === "student") {
+                optionsContainer.innerHTML = `
+                    <a href="login.html">Login</a>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
